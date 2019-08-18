@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-element-table
+      author: tunaranch
+      changes:
+        - createTable:
+            tableName: element
+            columns:
+              - column:
+                  name: id
+                  type: uuid
+                  defaultValueComputed: uuid()
+                  constraints:
+                    - primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(1023)
+
+
+
