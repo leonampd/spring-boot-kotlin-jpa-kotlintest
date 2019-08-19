@@ -16,7 +16,9 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <kotlin.version>1.2.71</kotlin.version>
+        <kotlin.version>1.3.41</kotlin.version>
+        <kotlintest.version>3.3.0</kotlintest.version>
+        <junit.jupiter.version>5.5.1</junit.jupiter.version>
     </properties>
 
     <dependencies>
@@ -69,6 +71,35 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.kotlintest</groupId>
+            <artifactId>kotlintest-runner-junit5</artifactId>
+            <version>${kotlintest.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.kotlintest</groupId>
+            <artifactId>kotlintest-extensions-spring</artifactId>
+            <version>${kotlintest.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.ninja-squad</groupId>
+            <artifactId>springmockk</artifactId>
+            <version>1.1.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -104,6 +135,24 @@
                         <version>${kotlin.version}</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>com.github.gantsign.maven</groupId>
+                <artifactId>ktlint-maven-plugin</artifactId>
+                <version>1.2.0</version>
+                <executions>
+                    <execution>
+                        <id>format-and-check</id>
+                        <goals>
+                            <goal>format</goal>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
             </plugin>
         </plugins>
     </build>
