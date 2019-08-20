@@ -3,7 +3,6 @@ package com.example.demo.chemicals.repository
 import io.kotlintest.shouldNotBe
 import io.kotlintest.specs.BehaviorSpec
 import javax.persistence.EntityManager
-import org.junit.jupiter.api.Assertions.*
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 
 @DataJpaTest
